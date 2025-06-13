@@ -1,14 +1,7 @@
 <?php
-include '../db.php';
 include '../lang.php';
 include '../head.php';
 
-$slugOptions = [
-    'tent'   => $translations['reservation_item_tent'] ?? 'Tent space',
-    'house'  => $translations['reservation_item_house'] ?? 'Cabin (house)',
-    'rest'   => $translations['reservation_item_rest'] ?? 'Territory',
-    'hottub' => $translations['reservation_item_hottub'] ?? 'Hot tub'
-];
 ?>
 
 <link rel="stylesheet" href="../css/style.css">

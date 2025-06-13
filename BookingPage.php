@@ -1,14 +1,11 @@
 <?php
-// booking_form.php
-require_once 'db.php'; // this file handles DB connection
-
-// Fetch all items from database
-try {
-    $stmt = $db->query("SELECT * FROM items");
-    $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    die("Error loading items: " . $e->getMessage());
-}
+// booking_form.public.php — Public-safe version (no DB)
+$items = [
+    ['id' => 1, 'name' => 'Cabin', 'type' => 'house'],
+    ['id' => 2, 'name' => 'Hot Tub', 'type' => 'hot_tub'],
+    ['id' => 3, 'name' => 'Sauna', 'type' => 'sauna'],
+    ['id' => 4, 'name' => 'Territory', 'type' => 'territory'],
+];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,18 +25,20 @@ try {
             <select class="form-select" name="item_id" id="item" required>
                 <option value="">Choose...</option>
                 <?php foreach ($items as $item): ?>
-                    <option value="<?= $item['id'] ?>" data-type="<?= $item['type'] ?>"><?= htmlspecialchars($item['name']) ?></option>
+                    <option value="<?= $item['id'] ?>" data-type="<?= $item['type'] ?>">
+                        <?= htmlspecialchars($item['name']) ?>
+                    </option>
                 <?php endforeach; ?>
             </select>
         </div>
 
         <div class="mb-3">
-            <label for="name" class="form-label">Your Name</label>
+            <label class="form-label">Your Name</label>
             <input type="text" class="form-control" name="customer_name" required>
         </div>
 
         <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
+            <label class="form-label">Email</label>
             <input type="email" class="form-control" name="customer_email" required>
         </div>
 
@@ -54,12 +53,12 @@ try {
         </div>
 
         <div class="mb-3">
-            <label for="people_count" class="form-label">Number of Adults</label>
+            <label class="form-label">Number of Adults</label>
             <input type="number" class="form-control" name="people_count" value="1" min="1">
         </div>
 
-        <div class="mb-3" id="kidsSection">
-            <label class="form-label">Kids Aged 4-10</label>
+        <div class="mb-3">
+            <label class="form-label">Kids Aged 4–10</label>
             <input type="number" class="form-control" name="kids_count_4_10" value="0" min="0">
 
             <label class="form-label mt-2">Kids Under 4</label>
@@ -74,13 +73,13 @@ try {
     </form>
 </div>
 
-<!-- Popup Modal -->
+<!-- Modal -->
 <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="bookingModalLabel">Booking Info</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title">Booking Info</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body" id="modalBody">
       </div>
@@ -89,21 +88,19 @@ try {
 </div>
 
 <script>
-$(document).ready(function() {
+$(document).ready(function () {
     function calculatePrice() {
-        const itemId = $("#item").val();
         const type = $("#item option:selected").data('type');
         const adults = parseInt($("input[name='people_count']").val()) || 0;
         const kids4_10 = parseInt($("input[name='kids_count_4_10']").val()) || 0;
-        const kidsUnder4 = parseInt($("input[name='kids_under_4']").val()) || 0;
 
         let price = 0;
-        switch(type) {
+        switch (type) {
             case 'house':
                 price = 50 + adults * 15;
                 break;
             case 'hot_tub':
-                price = 60; // Basic price, overnight option logic can be added later
+                price = 60;
                 break;
             case 'sauna':
                 const hours = (new Date($("input[name='end_time']").val()) - new Date($("input[name='start_time']").val())) / 3600000;
@@ -115,20 +112,20 @@ $(document).ready(function() {
                 price = adults * 12 + kids4_10 * 6;
                 break;
         }
+
         $("#priceDisplay").text(price.toFixed(2));
     }
 
-    $("#item, input, select").on("change", calculatePrice);
+    $("#item, input").on("change", calculatePrice);
     $("input[name='start_time'], input[name='end_time']").on("change", calculatePrice);
 
-    $("#bookingForm").on("submit", function(e) {
+    $("#bookingForm").on("submit", function (e) {
         e.preventDefault();
-        $.post("submit_booking.php", $(this).serialize(), function(response) {
-            const data = JSON.parse(response);
-            $("#modalBody").text(data.message);
-            new bootstrap.Modal(document.getElementById('bookingModal')).show();
-            if (data.success) $("#bookingForm")[0].reset();
-        });
+        const message = "This is a demo. No real booking is made.";
+        $("#modalBody").text(message);
+        new bootstrap.Modal(document.getElementById('bookingModal')).show();
+        $("#bookingForm")[0].reset();
+        $("#priceDisplay").text("0");
     });
 });
 </script>
