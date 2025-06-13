@@ -165,12 +165,12 @@ $base = ($dir === 'About' || $dir === 'Rentals' || $dir === 'Contact') ? '../' :
 
                 <li class="nav-item d-flex align-items-center">
     <span class="nav-link disabled">
-        <i class="fas fa-envelope" style="color: #3b6337;"></i> <?= $lang['email'] ?? 'ropazkalns@inbox.lv' ?>
+        <i class="fas fa-envelope" style="color: #3b6337;"></i> <?= $lang['email'] ?? 'Dummytest@inbox.lv' ?>
     </span>
                 </li>
                 <li class="nav-item d-flex align-items-center">
     <span class="nav-link disabled">
-        <i class="fas fa-phone" style="color: #3b6337;"></i> <?= $lang['phone'] ?? '+371 29 727 594' ?>
+        <i class="fas fa-phone" style="color: #3b6337;"></i> <?= $lang['phone'] ?? '+371 00 000 000' ?>
     </span>
                 </li>
                 <!-- Language switch -->
