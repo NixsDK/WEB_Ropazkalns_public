@@ -1,0 +1,818 @@
+/* HOME PAGE HERO */
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: 340px;
+    overflow: hidden;
+}
+
+.hero-container .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 30px 20px;
+    border-radius: 10px;
+    max-width: 700px;
+    min-width: 450px;
+    text-align: center;
+    z-index: 10;
+}
+
+.hero-buttons {
+    background: rgba(0, 0, 0, 0.01);
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 40px;
+    z-index: 20;
+}
+
+.btn-rent {
+    background-color: #508c39;
+    color: white;
+    font-weight: 600;
+    padding: 16px 32px;
+    font-size: 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: 0.3s ease;
+    min-width: 220px;
+}
+
+.btn-rent:hover {
+    background-color: #3b6e2d;
+    transform: translateY(-2px);
+}
+
+/* OUR STORY HERO */
+.story-header-image {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+}
+
+
+.story-header-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    opacity: 0.85;
+}
+
+.story-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: center;
+}
+
+.story-title {
+    font-size: 42px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.story-background {
+    background-color: rgba(255, 239, 191, 0.25);
+    padding: 30px 0;
+}
+
+/* NAVBAR dropdown fix */
+.dropdown-menu {
+    z-index: 10500 !important;
+    position: absolute !important;
+    background-color: rgba(255, 255, 255, 0.97);
+    color: #000;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-item:hover {
+    background-color: #e8f5e9;
+    color: #508c39 !important;
+    font-weight: bold;
+    transition: 0.2s ease-in-out;
+}
+
+/* SCROLL STYLE TEXT BOX */
+.scroll-box {
+    background-image: url('../images/oldpaper.png');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% 100%;
+    padding: 160px 40px 100px 40px;
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #3b2f23;
+    max-width: 800px;
+    min-height: 900px;
+    margin: 40px auto;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    background-color: transparent;
+}
+
+.scroll-text {
+    font-weight: bold;
+    color: #000000;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.85);
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+.scroll-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+}
+
+.scroll-background {
+    background-image: url('../images/oldpaper.png'); /* ← Use one of your uploaded images */
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 90%;
+    max-width: 900px;
+    padding: 60px 40px;
+    box-sizing: border-box;
+    background-color: transparent;
+    min-height: 700px;
+    position: relative;
+}
+
+.scroll-content {
+    max-height: 600px;
+    overflow-y: auto;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #222;
+    font-family: 'Georgia', serif;
+}
+
+
+.intro-section {
+    max-width: 1250px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+}
+
+.info-box {
+    background-color: #ffffff;
+    border-left: 5px solid #508c39;
+    padding: 20px 25px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+}
+
+.info-box h2 {
+    color: #3b5e28;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.highlight-note {
+    background-color: #f8ffea;
+    padding: 20px 25px;
+    border-left: 6px solid #9dc183;
+    font-weight: 500;
+    color: #444;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+.kempings-section i {
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+
+.kempings-box {
+    background-color: white;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+}
+
+.rental-cards {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 30px 0 0 -1px;
+    align-items: flex-start;
+}
+
+.rental-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    width: 360px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.rental-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-label {
+    padding: 16px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #508c39;
+    color: white;
+}
+
+.rental-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+.rental-card-wrapper {
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensure it stretches if needed */
+    min-height: 420px;
+}
+
+.card-details {
+    display: none;
+    background-color: #f5fcdc;
+    padding: 15px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-top: -10px;
+    font-size: 15px;
+    color: #333;
+}
+
+.card-details ul {
+    padding-left: 20px;
+    margin: 10px 0 0;
+}
+
+img[alt="Water Skis"] + .card-label {
+    margin-top: -38px;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* RENTAL DETAILS SECTION */
+.rental-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.rental-details-section {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+.rental-section h2 {
+    font-size: 28px;
+    color: #2e2e2e;
+    margin-bottom: 20px;
+    border-left: 6px solid #508c39;
+    padding-left: 12px;
+}
+
+.rental-section p,
+.rental-section ul,
+.rental-section li {
+    font-size: 17px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.rental-section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.rental-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.rental-prices {
+    margin-top: 30px;
+}
+
+.rental-prices h3 {
+    background-color: #f5fcdc;
+    padding: 12px;
+    border-radius: 6px;
+    color: #2e2e2e;
+}
+
+.rental-prices table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.rental-prices th, .rental-prices td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.rental-prices th {
+    background-color: #f0f0f0;
+}
+
+.rental-gallery {
+    margin-top: 40px;
+}
+
+.rental-gallery h3 {
+    background-color: #f5fcdc;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.rental-gallery .gallery-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.rental-gallery .gallery-row img {
+    width: calc(20% - 10px);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.gallery-grid img {
+    width: 259px;
+    height: 149px;
+    object-fit: cover;
+}
+.rental-main-image {
+    margin-top: 20px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+/* Specific layout for ActivitiesInNature */
+.rental-activities .rental-content {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.rental-activities .rental-text {
+    flex: 1 1 55%;
+}
+
+.rental-activities .rental-image {
+    flex: 1 1 40%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.rental-activities .rental-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+/*rental prices*/
+.price-category {
+    margin-bottom: 40px;
+}
+
+.price-category h3 {
+    color: #3b5e28;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.price-table th, .price-table td {
+    border: 1px solid #ddd;
+    padding: 12px 16px;
+    font-size: 16px;
+}
+
+.price-table th {
+    background-color: #f5fcdc;
+    text-align: left;
+}
+
+.price-table td {
+    color: #333;
+}
+
+
+/* CONTACT PAGE */
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 10px;
+    color: #fff;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.contact-form button {
+    background-color: #508c39;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.contact-form button:hover {
+    background-color: #3c6c2c;
+}
+
+.contact-form label {
+    color: #000; /* Black */
+    font-weight: 600;
+}
+.noma-spacing {
+    margin-top: 50px; /* adjust the spacing as you like */
+}
+/* === PRIVATE EVENTS PAGE === */
+.private-event-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 350px;
+    background-color: rgba(80, 140, 57, 0.7);
+    color: #ffffff;
+    text-align: center;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
+    padding: 15px;
+}
+
+.private-event-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.private-event-card h3,
+.private-event-card p {
+    margin: 10px 0;
+    color: #ffffff;
+}
+/* CALENDAR STYLE*/
+
+.calendar {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.calendar h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #2e2e2e;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.calendar-grid div {
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 6px;
+}
+
+.calendar-grid .empty {
+    background-color: transparent;
+}
+
+.calendar-grid .day {
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.calendar-grid .day:hover {
+    background-color: #c8e6c9;
+}
+
+.calendar-grid .today {
+    background-color: #aed581;
+    color: white;
+}
+
+.calendar-grid .reserved {
+    background-color: #ef9a9a;
+    color: white;
+}
+.calendar-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.nav-btn {
+    background-color: #508c39;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: #3a6f2a;
+}
+
+.month-label {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2e2e2e;
+}
+.calendar-select {
+    font-size: 16px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+/*Language button*/
+.language-switcher {
+    position: absolute;
+    top: 30px;
+    right: 420px;
+}
+
+.lang-btn {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    padding: 4px 10px;
+    margin-left: 5px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.lang-btn:hover {
+    background-color: #e2e6ea;
+}
+/**/
+.card-details {
+    display: none;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+#popup {
+    position: fixed;
+    top: 20%;
+    left: 30%;
+    width: 40%;
+    background: white;
+    border: 1px solid gray;
+    padding: 20px;
+    z-index: 1000;
+    display: none;
+}
+
+#closePopup {
+    float: right;
+    font-size: 20px;
+    color: #555;
+}
+
+#closePopup:hover {
+    color: #000;
+}
+/*BOOKING PAGE*/
+.reservation-wrapper {
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: #fdfdfd;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-wrapper h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.full-width {
+    flex: 1 1 100%;
+}
+
+button[type="submit"] {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4e7e4a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #3b6337;
+}
+
+.hidden {
+    display: none;
+}
+/*FOOTER*/
+.site-footer {
+    background: rgb(253, 246, 236);
+    color: #2e2e2e;
+    padding: 30px 20px;
+    font-size: 14px;
+    margin-top: 60px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.site-footer h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.site-footer a {
+    color: #2e2e2e;
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+}
+.footer-columns {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.footer-columns ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+
+}
+
+
+/* Lightbox Styles (Image zoom feature) */
+
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.lightbox-image {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(255,255,255,0.4);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 10000;
+}
+/*---------------------*/

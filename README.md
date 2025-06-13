@@ -1,1 +1,1 @@
-# WEB_Ropazkalns_public
+# Web-Project-Ropazkalns

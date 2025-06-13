@@ -1,0 +1,103 @@
+/* Base styling (default for medium PC screens: 1280px - 1599px) */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card {
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+/* For large monitors (1600px and up) */
+@media screen and (min-width: 1600px) {
+    .container {
+        width: 70%;
+    }
+    .card {
+        width: 30%;
+    }
+}
+
+/* For standard desktop (1280px - 1599px) */
+@media screen and (min-width: 1280px) and (max-width: 1599px) {
+    .container {
+        width: 80%;
+    }
+    .card {
+        width: 32%;
+    }
+}
+
+/* For smaller desktops & large laptops (1024px - 1279px) */
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+    .container {
+        width: 90%;
+        flex-direction: row;
+    }
+    .card {
+        width: 45%;
+    }
+}
+
+/* For narrow tabs or very small screens (below 1024px) */
+@media screen and (max-width: 1023px) {
+    .container {
+        width: 95%;
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        width: 90%;
+    }
+}
+
+/* --- BELOW are separate queries for the hero section --- */
+
+/* Hero section on small screens */
+@media screen and (max-width: 1024px) {
+    .hero-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero-image img {
+        max-height: 400px;
+    }
+    .hero-text {
+        position: static;
+        margin-top: 20px;
+        text-align: center;
+    }
+    /* For phones (e.g., <768px) */
+    @media screen and (max-width: 768px) {
+        .hero-image {
+            width: 100%;
+            height: 280px; /* Smaller height for phones */
+            overflow: hidden;
+            position: relative;
+        }
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero-text {
+            position: absolute;
+            bottom: -60px; /* Overlaps the image like a floating card */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0,0,0,0.7);
+            padding: 20px;
+            max-width: 90%;
+            border-radius: 10px;
+            z-index: 2;
+            font-size: 0.95rem;
+            padding: 20px;
+        }
+    }
+
+
+}
