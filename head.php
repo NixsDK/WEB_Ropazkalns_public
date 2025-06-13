@@ -105,9 +105,7 @@ $base = ($dir === 'About' || $dir === 'Rentals' || $dir === 'Contact') ? '../' :
             <a href="<?= $base; ?>HomePage.php" class="navbar-brand me-3">
                 <img src="<?= $base; ?>images/RopazkalnsLogo2resize.png" alt="Ropažkalns Logo" width="120" />
             </a>
-            <a class="nav-link" href="https://www.google.com/maps/place/Kalna+Paltes,+Ropa%C5%BEi,+Ropa%C5%BEu+pagasts,
-            +Ropa%C5%BEu+novads,+LV-2135/@56.9126176,24.6625837,17z/data=!3m1!4b1!4m6!3m5!1s0x46e930af6443ea89:
-            0xe26ba5f290ca8e65!8m2!3d56.9126176!4d24.665164!16s%2Fg%2F11mtml1dgp?entry=ttu&g_ep=EgoyMDI1MDUyOC4wIKXMDSoASAFQAw%3D%3D"
+            <a class="nav-link" href="https://www.google.com/maps/@57.1325543,25.2537051,15.29z?entry=ttu&g_ep=EgoyMDI1MDYxMS4wIKXMDSoASAFQAw%3D%3D"
                target="_blank">
                 <i class="fas fa-map-marker-alt" style="color: #3b6337;"></i> <?= $lang['location_directions'] ?? 'Braukšanas norādes' ?>
             </a>

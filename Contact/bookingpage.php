@@ -2,6 +2,12 @@
 include '../lang.php';
 include '../head.php';
 
+$slugOptions = [
+    'tent'   => $translations['reservation_item_tent'] ?? 'Tent space',
+    'house'  => $translations['reservation_item_house'] ?? 'Cabin (house)',
+    'rest'   => $translations['reservation_item_rest'] ?? 'Territory',
+    'hottub' => $translations['reservation_item_hottub'] ?? 'Hot tub'
+];
 ?>
 
 <link rel="stylesheet" href="../css/style.css">
@@ -30,38 +36,48 @@ include '../head.php';
 
                 <!-- Dates -->
                 <div class="form-row">
-                    <label><?= $translations['reservation_from'] ?? 'From:' ?>
+                    <div class="form-group">
+                        <label><?= $translations['reservation_from'] ?? 'From:' ?></label>
                         <input type="date" name="from_date" required>
-                    </label>
-                    <label><?= $translations['reservation_to'] ?? 'To:' ?>
+                    </div>
+                    <div class="form-group">
+                        <label><?= $translations['reservation_to'] ?? 'To:' ?></label>
                         <input type="date" name="to_date" required>
-                    </label>
+                    </div>
                 </div>
 
                 <!-- People -->
                 <div class="form-row">
-                    <label><?= $translations['reservation_people'] ?? 'People:' ?>
+                    <div class="form-group full-width">
+                        <label><?= $translations['reservation_people'] ?? 'People:' ?></label>
                         <input type="number" name="people_count" min="1" value="1" required>
-                    </label>
+                    </div>
                 </div>
 
                 <!-- Name & Email -->
                 <div class="form-row">
-                    <label><?= $translations['reservation_name'] ?? 'Your Name:' ?>
+                    <div class="form-group">
+                        <label><?= $translations['reservation_name'] ?? 'Your Name:' ?></label>
                         <input type="text" name="name" required>
-                    </label>
-                    <label><?= $translations['reservation_email'] ?? 'Your Email:' ?>
+                    </div>
+                    <div class="form-group">
+                        <label><?= $translations['reservation_email'] ?? 'Your Email:' ?></label>
                         <input type="email" name="email" required>
-                    </label>
+                    </div>
                 </div>
 
                 <!-- Notes -->
-                <label><?= $translations['reservation_notes'] ?? 'Notes:' ?>
-                    <textarea name="notes" rows="2"></textarea>
-                </label>
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label><?= $translations['reservation_notes'] ?? 'Notes:' ?></label>
+                        <textarea name="notes" rows="3"></textarea>
+                    </div>
+                </div>
 
                 <!-- Submit -->
-                <button type="submit" id="calcBtn"><?= $translations['reservation_calc_price'] ?? 'Get Price' ?></button>
+                <div class="form-row">
+                    <button type="button" id="dummyBtn"><?= $translations['reservation_calc_price'] ?? 'Get Price' ?></button>
+                </div>
             </form>
 
             <div id="result" style="margin-top:1rem;"></div>
@@ -70,7 +86,7 @@ include '../head.php';
 </main>
 
 <script>
-    const itemLabels = <?php echo json_encode($slugOptions, JSON_UNESCAPED_UNICODE); ?>;
+    const itemLabels = <?= json_encode($slugOptions, JSON_UNESCAPED_UNICODE); ?>;
 
     function buildRow() {
         const tr = document.createElement('tr');
@@ -80,9 +96,9 @@ include '../head.php';
         sel.required = true;
         sel.innerHTML =
             '<option value="">-- choose --</option>' +
-            Object.entries(itemLabels)
-                .map(([slug, label]) => `<option value="${slug}">${label}</option>`)
-                .join('');
+            Object.entries(itemLabels).map(([slug, label]) =>
+                `<option value="${slug}">${label}</option>`
+            ).join('');
         tr.insertCell().appendChild(sel);
 
         const qty = document.createElement('input');
@@ -105,47 +121,13 @@ include '../head.php';
     document.getElementById('addRow').addEventListener('click', () => {
         document.querySelector('#itemsTable tbody').appendChild(buildRow());
     });
+
     document.getElementById('addRow').click();
 
-    const form = document.getElementById('rentalForm');
-    const resultDiv = document.getElementById('result');
-
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-        resultDiv.textContent = '<?= $translations['reservation_calculating'] ?? 'Calculating…' ?>';
-
-        const fd = new FormData(form);
-        fetch('calculate_price.php', { method: 'POST', body: fd })
-            .then(r => r.text())
-            .then(html => {
-                resultDiv.innerHTML = html;
-                addConfirmButton();
-            })
-            .catch(err => resultDiv.textContent = err);
+    document.getElementById('dummyBtn').addEventListener('click', () => {
+        const result = document.getElementById('result');
+        result.innerHTML = `<p style="color:green;"><strong>Demo only – no data submitted.</strong></p>`;
     });
-
-    function addConfirmButton() {
-        if (document.getElementById('confirmBtn')) return;
-
-        const btn = document.createElement('button');
-        btn.id = 'confirmBtn';
-        btn.type = 'button';
-        btn.style.marginTop = '0.5rem';
-        btn.textContent = '<?= $translations['reservation_confirm'] ?? 'Confirm & Save' ?>';
-
-        btn.addEventListener('click', () => {
-            const fd = new FormData(form);
-            fd.append('confirm', '1');
-
-            resultDiv.textContent = '<?= $translations['reservation_saving'] ?? 'Saving…' ?>';
-            fetch('calculate_price.php', { method: 'POST', body: fd })
-                .then(r => r.text())
-                .then(html => resultDiv.innerHTML = html)
-                .catch(err => resultDiv.textContent = err);
-        });
-
-        resultDiv.appendChild(btn);
-    }
 </script>
 
 <?php include '../footer.php'; ?>

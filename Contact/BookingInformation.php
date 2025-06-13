@@ -1,6 +1,5 @@
 <?php
->
-
+?>
 <?php include "../lang.php"; ?>
 <?php include "../head.php"; ?>
 
